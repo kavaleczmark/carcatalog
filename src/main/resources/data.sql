@@ -1,0 +1,1 @@
+INSERT INTO Brands(id,name,country) VALUES(1,'Audi','Germany');
