@@ -10,6 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/brands")
 public class BrandController {
+
     @Autowired
     BrandService brandService;
 
@@ -28,13 +29,19 @@ public class BrandController {
         brandService.deleteBrand(id);
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/id/{id}")
     public Brand getBrandByID(@PathVariable int id) {
         return brandService.getBrandByID(id);
     }
 
     @PatchMapping("{id}")
-    public Brand updateBrand(@PathVariable int id, @RequestBody  Brand newBrand) {
-        return brandService.updateBrandByID(id,newBrand);
+    public Brand updateBrand(@PathVariable int id, @RequestBody Brand newBrand) {
+        return brandService.updateBrandByID(id, newBrand);
     }
+
+    @GetMapping("/country/{country}")
+    public List<Brand> getBrandsByCountry(@PathVariable String country) {
+        return brandService.getBrandsByCountry(country);
+    }
+
 }
