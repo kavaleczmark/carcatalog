@@ -12,7 +12,7 @@ import java.util.List;
 public class BrandService {
 
     @Autowired
-    BrandRepository brandRepository;
+    private BrandRepository brandRepository;
 
     public List<Brand> getAllBrands() {
         return brandRepository.findAll();

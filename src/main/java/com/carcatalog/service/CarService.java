@@ -12,10 +12,10 @@ import java.util.List;
 public class CarService {
 
     @Autowired
-    CarRepository carRepository;
+    private CarRepository carRepository;
 
     @Autowired
-    BrandService brandService;
+    private BrandService brandService;
 
     public List<Car> getAllCars() {
         return carRepository.findAll();
@@ -31,12 +31,12 @@ public class CarService {
 
 
     public void deleteCar(int id) {
-        Car car = carRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("ID not found"));
+        Car car = carRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("ID not found"));
         carRepository.delete(car);
     }
 
     public Car getCarByID(int id) {
-        return carRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("ID not found"));
+        return carRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("ID not found"));
     }
 
     public Car updateCarByID(int id, Car newCar) {
@@ -53,7 +53,7 @@ public class CarService {
 
     public List<Car> getCarsByBrand(String name) {
         int brandId = brandService.getBrandByName(name).getId();
-        return carRepository.findByBrandId(brandId).orElseThrow(()-> new ResourceNotFoundException("No cars found with provided name"));
+        return carRepository.findByBrandId(brandId).orElseThrow(() -> new ResourceNotFoundException("No cars found with provided name"));
     }
 
 }

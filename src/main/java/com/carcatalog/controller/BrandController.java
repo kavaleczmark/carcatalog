@@ -12,7 +12,7 @@ import java.util.List;
 public class BrandController {
 
     @Autowired
-    BrandService brandService;
+    private BrandService brandService;
 
     @GetMapping
     public List<Brand> getAllBrands() {

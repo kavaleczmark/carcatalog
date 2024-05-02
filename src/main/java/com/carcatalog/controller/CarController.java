@@ -12,7 +12,7 @@ import java.util.List;
 public class CarController {
 
     @Autowired
-    CarService carService;
+    private CarService carService;
 
     @GetMapping
     public List<Car> getAllCars() {
